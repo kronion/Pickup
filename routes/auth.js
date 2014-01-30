@@ -70,7 +70,7 @@ module.exports = {
           }
           else {
             req.flash('info', 'User created!');
-            req.redirect('/home');
+            res.redirect('/home');
           }
         }); 
       } 

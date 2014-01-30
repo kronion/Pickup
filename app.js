@@ -51,7 +51,7 @@ app.post('/login', auth.login);
 
 app.get('/logout', auth.logout);
 
-app.get('/register', functino (req, res) {
+app.get('/register', function (req, res) {
   res.sendfile('public/register.html');
 });
 
