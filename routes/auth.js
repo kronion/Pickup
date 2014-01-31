@@ -57,7 +57,7 @@ module.exports = {
         req.flash('error', 'Registration failed on our end. Please try again.');
         res.redirect('/register');
       }
-      if (!user) {
+      else if (!user) {
         newUser = new User({
           'username': req.body.username,
           'password': req.body.password
@@ -74,7 +74,6 @@ module.exports = {
           }
         }); 
       } 
-  
       else {
         req.flash('error', 'Username already taken, please try again.');
         res.redirect('/register');

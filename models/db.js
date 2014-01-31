@@ -5,6 +5,8 @@ var db = mongoose.connection;
 exports.connect = db;
 
 var Schema = mongoose.Schema;
+var id = mongoose.Types.ObjectId;
+exports.ObjectId = id;
 
 var userSchema = new Schema({
   'username': String,
@@ -13,3 +15,14 @@ var userSchema = new Schema({
 
 var User = mongoose.model('User', userSchema);
 exports.User = User;
+
+var pickupSchema = new Schema({
+  'location': String,
+  'item': String,
+  'returnTo': String,
+  'offer': String,
+  'selected': Boolean
+});
+
+var Pickup = mongoose.model('Pickup', pickupSchema);
+exports.Pickup = Pickup;

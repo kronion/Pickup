@@ -1,0 +1,28 @@
+extends layout
+
+block header
+  div#home-header.header
+    div.topbar
+      ul.options.pure-menu-horizontal
+        li
+          a(href='/new') New pickup
+        li
+          a(href='/logout') Logout
+      p 
+        a(href='/home') Home
+    h1#home-title.title Princeton Pickup
+
+block home
+  if pickups
+    each pickup in pickups
+      p #{pickup.location}
+      p #{pickup.item}
+      p #{pickup.returnTo}
+      p #{pickup.offer}
+      if !pickup.selected
+        a.select(href='/selected?id=' + pickup._id) "I'll get it!"
+  else
+    p No pickups
+
+block scripts
+  script(type='application/javascript' src='js/home.js')
